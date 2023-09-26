@@ -1,1 +1,69 @@
-
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "customerName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the Customer"
+            }
+        },
+        "hubAddressPrefix": {
+            "type": "string",
+            "metadata": {
+                "description": "Address Prefix for Hub VNET"
+            }
+        },
+        "hubSubnet1Prefix": {
+            "type": "string",
+            "metadata": {
+                "description": "Hub Subnet1 Address Space"
+            }
+        },
+        "hubSubnet2Prefix": {
+            "type": "string",
+            "metadata": {
+                "description": "Hub Subnet 2 Address Prefix"
+            }
+        }
+    },
+    "functions": [],
+    "variables": {
+        "hubVnetName": "[concat(parameters('customerName'),'-vnet-hub-prod-', resourceGroup().location, '-000')]",
+        "hubSubnet1Name": "[concat(parameters('customerName'), '-snet-hub-prod-', resourceGroup().location, '-000')]",
+        "hubSubnet2Name": "[concat(parameters('customerName'), '-snet-hub-prod-', resourceGroup().location, '-001')]"
+    },
+    "resources": [
+        {
+            "name": "[variables('hubVnetName')]",
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2023-04-01",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "displayName": "virtualNetwork1"
+            },
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[parameters('hubAddressPrefix')]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[variables('hubSubnet1Name')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('hubSubnet1Prefix')]"
+                        }
+                    },
+                    {
+                        "name": "[variables('hubSubnet2Name')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('hubSubnet2Prefix')]"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {}
+}

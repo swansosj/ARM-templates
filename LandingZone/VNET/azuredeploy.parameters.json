@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "customerName": {
+            "value": "## TO BE DEFINED ##"
+        },
+        "hubAddressPrefix": {
+            "value": "## TO BE DEFINED ##"
+        },
+        "hubSubnet1Prefix": {
+            "value": "## TO BE DEFINED ##"
+        },
+        "hubSubnet2Prefix": {
+            "value": "## TO BE DEFINED ##"
+        }
+    }
+}
