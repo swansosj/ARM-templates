@@ -1,6 +1,6 @@
 # Sheldons ARM-templates
 
-These templates were designed by Sheldon Swanson
+:cloud:These templates were designed by Sheldon Swanson:cloud:
 
 - [Fortinet](Fortinet/)
 - [FortiGate](Fortinet/Fortigate/)
