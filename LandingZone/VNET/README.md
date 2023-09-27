@@ -6,6 +6,8 @@
 
 ## Design
 
+![active/passive design](images/diagram.png)
+
 ## Deployment
 
 ### Azure Portal
