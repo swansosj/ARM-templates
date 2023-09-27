@@ -6,7 +6,7 @@
 
 ## Design
 
-![active/passive design](images/diagram.png)
+![active/passive design](images/H_S-Design.png)
 
 ## Deployment
 
